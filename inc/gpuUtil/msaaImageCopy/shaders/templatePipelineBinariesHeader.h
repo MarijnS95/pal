@@ -22,44 +22,23 @@
  *  SOFTWARE.
  *
  **********************************************************************************************************************/
+#pragma once
 
-/**
-  *
-  * WMI
-  * @author Thomas Sparber (2016)
-  *
- **/
+#include "pal.h"
 
-#ifndef WMIEXCEPTION_HPP
-#define WMIEXCEPTION_HPP
-
-#include <sstream>
-#include <string>
-
-namespace Wmi
+namespace GpuUtil
+{
+namespace MsaaImageCopy
 {
 
-	struct WmiException
-	{
+struct PipelineBinary
+{
+    const void* pBuffer;
+    size_t size;
+};
 
-		WmiException(const std::string &str_errorMessage, long l_errorCode) :
-			errorMessage(str_errorMessage),
-			errorCode(l_errorCode)
-		{}
+$PipelineBinaries
+$ElfTables
 
-		std::string hexErrorCode() const
-		{
-			std::stringstream ss;
-			ss<<"0x"<<std::hex<<errorCode;
-			return ss.str();
-		}
-
-		std::string errorMessage;
-
-		long errorCode;
-
-	}; //end struct WmiException
-
-}; //end namespace Wmi
-
-#endif
+} // MsaaImageCopy
+} // GpuUtil
